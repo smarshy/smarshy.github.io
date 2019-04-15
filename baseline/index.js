@@ -10,11 +10,11 @@ const examples = {
   'example1':
       'And it came to pass the third day',
   'example2':
-      'At closes in the consequence, I marry,He closes with you thus. I know the Gentleman,I saw him yesterday,',
+      'At closes in the consequence, I marry',
   'example3':
       'From house to house he goes , A messenger small and slight , And whether it rains or snows', 
   'example4':
-      'Mrs. Dashwood, who did not chuse to dine with them oftener than they dined at the cottage, absolutely refused on her own account;her daughters' 
+      'dashwood absolutely refused' 
 };
 
 function status(statusText) {
