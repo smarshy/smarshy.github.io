@@ -8,7 +8,7 @@ const HOSTED_URLS = {
 
 const examples = {
   'example1':
-      'And it came to pass the third day , which was Pharaoh ' s birthday',
+      'And it came to pass the third day',
   'example2':
       'At closes in the consequence, I marry,He closes with you thus. I know the Gentleman,I saw him yesterday,',
   'example3':
