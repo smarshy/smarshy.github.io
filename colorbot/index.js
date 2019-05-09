@@ -24,6 +24,7 @@ function status(statusText) {
 
 function color_box(r, g, b) {
   var new_color = "rgb(" + r + "," + g + "," + b + ")";
+  console.log("in coloring function");
   document.getElementById('color-me').style.backgroundColor=new_color;
 }
 
@@ -64,10 +65,10 @@ function doPredict(predict) {
   
   var score_string = "Predicted RGB: ("
   console.log("red: " + r + ", green: " + g + ", blue: " + b);
-  status(
-      score_string + r + ',' + g + ',' + b + ')<br>' + 'Elapsed: ' + result.elapsed.toFixed(4) + ' ms');
+  status(score_string + r + ',' + g + ',' + b + ') ' + 'Elapsed: ' + result.elapsed.toFixed(4) + ' ms');
       
   color_box(r, g, b);
+  console.log("box color should change");
 }
 
 function prepUI(predict) {
