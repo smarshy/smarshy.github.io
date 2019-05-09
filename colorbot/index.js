@@ -127,8 +127,8 @@ class Classifier {
     const inputBuffer = tf.buffer([1, this.maxLen], 'float32');
     for (let i = 0; i < inputText.length; ++i) {
       const word = inputText[i];
-      inputBuffer.set(this.wordIndex[word], 0, i);
-      //console.log(word, this.wordIndex[word], inputBuffer);
+      inputBuffer.set(this.wordIndex[word], 0, this.maxLen - inputText.length + i);
+      console.log(word, this.wordIndex[word], inputBuffer);
     }
     const input = inputBuffer.toTensor();
     //console.log(input);
@@ -140,7 +140,7 @@ class Classifier {
     //console.log(predictOut.dataSync());
     console.log("predicted value");
     //console.log(predictOut)
-    const score = predictOut.dataSync()[0];//[0];
+    const score = predictOut.dataSync();//[0];
     console.log(score)
     console.log("score should be printed out")
     predictOut.dispose();
