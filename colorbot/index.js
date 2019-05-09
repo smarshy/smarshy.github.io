@@ -140,6 +140,7 @@ class Classifier {
     console.log("predicted value");
     console.log(predictOut)
     const score = predictOut.dataSync();//[0];
+    console.log(score)
     predictOut.dispose();
     const endMs = performance.now();
 
