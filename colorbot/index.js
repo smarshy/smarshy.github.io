@@ -138,9 +138,10 @@ class Classifier {
     const predictOut = this.model.predict(input);
     //console.log(predictOut.dataSync());
     console.log("predicted value");
-    console.log(predictOut)
+    //console.log(predictOut)
     const score = predictOut.dataSync();//[0];
     console.log(score)
+    console.log("score should be printed out")
     predictOut.dispose();
     const endMs = performance.now();
 
