@@ -22,6 +22,10 @@ function status(statusText) {
   document.getElementById('status').textContent = statusText;
 }
 
+function scale(n) {
+  return parseInt(n*255.0);
+}
+
 function showMetadata(metadataJSON) {
   document.getElementById('vocabularySize').textContent =
       metadataJSON['vocabulary_size'];
@@ -48,12 +52,15 @@ function doPredict(predict) {
   const textField = document.getElementById('text-entry');
   const result = predict(textField.value);
   score_string = "Predicted RGB: ";
-  for (var x in result) {
-    score_string += x + " ->  "
-  }
-  //console.log(score_string);
+  var r = result.score[0], g = result.score[1], b = result.score[2];
+  r = scale(r);
+  g = scale(g);
+  b = scale(b);
+  
+  var score_string = "Predicted RGB: ("
+  console.log("red: " + r + ", green: " + g + ", blue: " + b);
   status(
-      score_string);
+      score_string + r + ',' + g + ',' + b + ')<br>' + 'Elapsed: ' + result.elapsed.toFixed(4) + ' ms');
 }
 
 function prepUI(predict) {
