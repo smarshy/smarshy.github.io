@@ -140,8 +140,8 @@ class Classifier {
     //console.log(predictOut.dataSync());
     console.log("predicted value");
     //console.log(predictOut)
-    const score_1 = predictOut.dataSync();//[0];
-    console.log(score_1)
+    const score = predictOut.dataSync();//[0];
+    console.log(score)
     console.log("score should be printed out")
     predictOut.dispose();
     const endMs = performance.now();
