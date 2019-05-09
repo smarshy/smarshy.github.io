@@ -22,6 +22,11 @@ function status(statusText) {
   document.getElementById('status').textContent = statusText;
 }
 
+function color_box(r, g, b) {
+  var new_color = "rgb(" + r + "," + g + "," + b + ")";
+  document.getElementById('color-me').style.backgroundColor=new_color;
+}
+
 function scale(n) {
   return parseInt(n*255.0);
 }
@@ -61,6 +66,8 @@ function doPredict(predict) {
   console.log("red: " + r + ", green: " + g + ", blue: " + b);
   status(
       score_string + r + ',' + g + ',' + b + ')<br>' + 'Elapsed: ' + result.elapsed.toFixed(4) + ' ms');
+      
+  color_box(r, g, b);
 }
 
 function prepUI(predict) {
@@ -132,16 +139,16 @@ class Classifier {
         text.trim().toLowerCase().replace(/(\.|\,|\!)/g, '').split('');
     // Look up word indices.
     const inputBuffer = tf.buffer([1, this.maxLen], 'float32');
-    console.log(inputText);
+    //console.log(inputText);
     for (let i = 0; i < inputText.length; ++i) {
       const word = inputText[i];
       //inputBuffer.set(this.wordIndex[word], 0, i);
       inputBuffer.set(this.wordIndex[word], 0, this.maxLen - inputText.length + i);
-      console.log(word, this.wordIndex[word], inputBuffer);
+      //console.log(word, this.wordIndex[word], inputBuffer);
     }
     const input = inputBuffer.toTensor();
     //console.log(input);
-    console.log(input);
+    //console.log(input);
 
     status('Running inference');
     const beginMs = performance.now();
