@@ -136,13 +136,18 @@ class Classifier {
     status('Running inference');
     const beginMs = performance.now();
     const predictOut = this.model.predict(input);
+    const predictOut2 = this.model.predict("light blue");
     //console.log(predictOut.dataSync());
     console.log("predicted value");
     //console.log(predictOut)
-    const score = predictOut.dataSync();//[0];
-    console.log(score)
+    const score_1 = predictOut.dataSync();//[0];
+    console.log(score_1)
     console.log("score should be printed out")
+    const score_2 = predictOut2.dataSync();//[0];
+    console.log(score_2)
+    console.log("score 2 should be printed out")
     predictOut.dispose();
+    predictOut2.dispose();
     const endMs = performance.now();
 
     return {score: score, elapsed: (endMs - beginMs)};
